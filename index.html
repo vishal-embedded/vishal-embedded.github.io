@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- SEO Primary Meta Tags -->
+  <title>Vishal Nagarajan | Embedded Software Engineer & Firmware Developer</title>
+  <meta name="title" content="Vishal Nagarajan | Embedded Software Engineer & Firmware Developer">
+  <meta name="description"
+    content="Portfolio of Vishal Nagarajan, Embedded Software Engineer specializing in Embedded C/C++, firmware, CAN bus, MISRA C compliance, and microcontroller hardware-software integration. Avionics intern at HAL; published researcher in INTI Journal.">
+  <meta name="keywords"
+    content="Vishal Nagarajan, Embedded Software Engineer, Firmware Developer, Embedded C, Embedded C++, CAN Bus, MISRA C, Hindustan Aeronautics Limited, HAL, STM32, ESP32, PIC Microcontroller, Coimbatore, SREC, INTI Journal, Real-Time Systems">
+  <meta name="author" content="Vishal Nagarajan">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://vishalnagarajan.work/">
+  <meta property="og:title" content="Vishal Nagarajan | Embedded Software Engineer & Firmware Developer">
+  <meta property="og:description"
+    content="Embedded Systems & Firmware Engineer with experience in avionics algorithm optimization at HAL, CAN bus protocols, MISRA C compliance, and 13+ engineering prototypes.">
+  <meta property="og:image" content="assets/hero-art.jpg">
+
+  <!-- Twitter Meta Tags -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Vishal Nagarajan | Embedded Software Engineer">
+  <meta property="twitter:description"
+    content="Embedded C/C++, Microcontrollers, CAN Bus, and Safety-Critical Firmware. Published in INTI Journal 2026.">
+  <meta property="twitter:image" content="assets/hero-art.jpg">
+
+  <!-- Favicon (SVG Circuit Badge) -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23030407'/><circle cx='50' cy='50' r='36' stroke='%231558C9' stroke-width='6' fill='none'/><path d='M30 50 L45 65 L70 35' stroke='%23D4FF24' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Schema.org Structured Data (JSON-LD) for Search Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://vishalnagarajan.work/#person",
+        "name": "Vishal Nagarajan",
+        "jobTitle": "Embedded Software Engineer",
+        "description": "Electronics and Communication Engineering graduate specializing in embedded software development, real-time microcontrollers, CAN communication, and MISRA C compliance.",
+        "email": "vishalnagarajan.work@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Coimbatore",
+          "addressRegion": "Tamil Nadu",
+          "addressCountry": "India"
+        },
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "Sri Ramakrishna Engineering College"
+        },
+        "sameAs": [
+          "https://linkedin.com/in/vakxee",
+          "https://instagram.com/vishalnagarajan_"
+        ]
+      },
+      {
+        "@type": "ScholarlyArticle",
+        "@id": "https://doi.org/10.61453/INTIj.20260227",
+        "headline": "Real-Time Fault Detection in Microcontrollers",
+        "author": [
+          {
+            "@type": "Person",
+            "name": "Dr. M. Ezhilarasi"
+          },
+          {
+            "@type": "Person",
+            "name": "Vishal Nagarajan"
+          }
+        ],
+        "datePublished": "2026",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "INTI Journal",
+          "volumeNumber": "2026",
+          "issueNumber": "224"
+        },
+        "sameAs": "https://doi.org/10.61453/INTIj.20260227"
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- Background Interactive Cyber Particles Canvas -->
+  <canvas id="interactive-canvas"></canvas>
+
+  <!-- ==========================================================================
+       TOP FIRMWARE TELEMETRY ICKER (Clean & Public)
+       ========================================================================== -->
+  <aside class="telemetry-ticker" aria-label="Embedded System Status Bar">
+    <div class="telemetry-left">
+      <span class="status-indicator">
+        <span class="pulse-dot"></span>
+        <span>SYS: ONLINE</span>
+      </span>
+      <span class="telemetry-item">
+        <span class="telemetry-tag">LOC:</span> COIMBATORE, TN (IN)
+      </span>
+    </div>
+    <div class="telemetry-right">
+      <span id="telemetry-clock" class="telemetry-item" style="color: var(--acid-lime);">TICK: --:--:--</span>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       MAIN NAVIGATION
+       ========================================================================== -->
+  <nav class="main-nav" id="main-navigation">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo" aria-label="Vishal Nagarajan Portfolio Home">
+        <div class="brand-icon" id="brand-logo-icon" title="Vishal Nagarajan">VN</div>
+        <div class="brand-name">
+          <span class="name">Vishal Nagarajan</span>
+          <span class="role">Embedded Software Engineer</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#publication" class="nav-link">Publication</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-primary btn-sm">Hire / Connect</a>
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ==========================================================================
+         HERO SECTION
+         ========================================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+
+          <div class="hero-content">
+            <div class="hero-status-pill">
+              <span class="pulse-dot"></span>
+              <span>Open for Firmware & Safety-Critical Engineering Roles</span>
+            </div>
+
+            <div class="hero-intro-header">
+              <div class="hero-name-badge">
+                <span class="hero-engineer-name">Vishal Nagarajan</span>
+                <span class="hero-engineer-pill">Embedded Software &amp; Firmware Engineer</span>
+              </div>
+              <h1 class="hero-tagline">
+                Building High-Reliability
+                <span class="highlight-cobalt">Firmware</span> &amp;
+                <span class="highlight-lime">Embedded Logic</span>
+              </h1>
+            </div>
+
+            <p class="hero-subtitle">
+              Electronics &amp; Communication Engineer specializing in <strong>Embedded C/C++</strong>,
+              <strong>CAN Bus communication</strong>, and real-time microcontrollers.
+              Proven defense-avionics experience at <strong>Hindustan Aeronautics Limited (HAL)</strong> optimizing
+              mission-critical warning systems, with <strong>13+ engineering prototypes</strong> independently
+              developed.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#projects" class="btn btn-primary">
+                <span>View Engineering Projects</span>
+                <span>↓</span>
+              </a>
+              <a href="#publication" class="btn btn-cobalt">
+                <span>View Publications</span>
+                <span>↓</span>
+              </a>
+              <a href="#contact" class="btn btn-outline">
+                <span>Get In Touch</span>
+              </a>
+            </div>
+
+            <div class="hero-stats-row">
+              <div class="stat-item">
+                <span class="stat-value">13+</span>
+                <span class="stat-label">Prototypes Built</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">5+</span>
+                <span class="stat-label">Silicon Architectures</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">4+</span>
+                <span class="stat-label">Buses &amp; Protocols</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">1</span>
+                <span class="stat-label">Peer-Reviewed Paper</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Visual: Starry Night Chromatic Portrait & Live Boot Terminal -->
+          <div class="hero-visual-card">
+            <div class="hero-frame-outer">
+              <div class="hero-frame-inner">
+                <img src="assets/hero-art.jpg"
+                  alt="Vishal Nagarajan artistic chromatic portrait with Starry Night aesthetic" class="hero-art-img"
+                  width="1200" height="675" loading="eager">
+
+                <div class="hero-floating-terminal">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="terminal-dot red"></span>
+                      <span class="terminal-dot yellow"></span>
+                      <span class="terminal-dot green"></span>
+                    </div>
+                    <span class="terminal-title">MCU_CORE_BOOT // STM32 &amp; CAN</span>
+                  </div>
+                  <div class="terminal-line">
+                    <span class="term-prompt">$</span>
+                    <span>hal_system_init(CLOCK_168MHZ); <span class="term-highlight">[READY]</span></span>
+                  </div>
+                  <div class="terminal-line">
+                    <span class="term-prompt">$</span>
+                    <span>can_bus_init(BITRATE_500K); <span class="term-highlight">[OK]</span></span>
+                  </div>
+                  <div class="terminal-line">
+                    <span class="term-prompt">$</span>
+                    <span>misra_c_audit(); <span style="color: var(--acid-lime);">[0 MISRA VIOLATIONS]</span></span>
+                  </div>
+                  <div class="terminal-line">
+                    <span class="term-prompt">$</span>
+                    <span>engineer: <strong style="color: #ffffff;">Vishal Nagarajan</strong></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         RESEARCH & PUBLICATION SHOWCASE (INTI JOURNAL 2026)
+         ========================================================================== -->
+    <section class="section" id="publication">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Peer-Reviewed Research</span>
+          <h2 class="section-title">Published Scholarly Work</h2>
+          <p class="section-desc">
+            Rigorous research on fault detection mechanisms in embedded microcontroller systems subjected to physical
+            electrical glitches and logical execution anomalies.
+          </p>
+        </div>
+
+        <div id="publications-container">
+          <!-- Dynamically populated by js/app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         WORK EXPERIENCE SECTION (Dynamic & Editable in CRM)
+         ========================================================================== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Engineering Trajectory</span>
+          <h2 class="section-title">Work Experience</h2>
+          <p class="section-desc">
+            Direct defense avionics engineering and independent embedded hardware-software development.
+          </p>
+        </div>
+
+        <div class="timeline" id="experience-container">
+          <!-- Dynamically populated by js/app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PROJECTS SECTION & DYNAMIC FILTER
+         ========================================================================== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Prototypes &amp; Systems</span>
+          <h2 class="section-title">Featured Engineering Projects</h2>
+          <p class="section-desc">
+            Explore hardware prototypes, safety interlocks, and embedded software architectures.
+          </p>
+        </div>
+
+        <div class="projects-filter-bar">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="featured">★ Top Awards &amp; Research</button>
+          <button class="filter-btn" data-filter="robotics">Robotics &amp; Automation</button>
+          <button class="filter-btn" data-filter="safety">Safety &amp; Diagnostics</button>
+          <button class="filter-btn" data-filter="iot">IoT &amp; Campus Systems</button>
+          <button class="filter-btn" data-filter="automotive">Automotive &amp; CAN</button>
+          <button class="filter-btn" data-filter="freelance">Commercial Prototypes</button>
+        </div>
+
+        <div class="projects-grid" id="projects-container">
+          <!-- Dynamically populated by js/app.js from getStoredPortfolioData() -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SKILLS & HARDWARE ARCHITECTURE MATRIX
+         ========================================================================== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Technical Competencies</span>
+          <h2 class="section-title">Skills &amp; Silicon Ecosystem</h2>
+          <p class="section-desc">
+            Proficiencies across low-level firmware programming, automotive communication buses, hardware
+            microcontrollers, and laboratory instruments.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+
+          <!-- Column 1: Firmware & Programming -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="cat-icon">&lt;/&gt;</div>
+              <h3 class="skill-cat-title">Firmware &amp; Low-Level</h3>
+            </div>
+            <div class="skill-bar-list" id="skills-programming-list">
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span class="skill-name">Embedded C</span>
+                  <span class="skill-pct">95%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-progress" style="width: 95%;"></div>
+                </div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span class="skill-name">C++ / Object-Oriented</span>
+                  <span class="skill-pct">90%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-progress" style="width: 90%;"></div>
+                </div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span class="skill-name">MISRA C:2012 Guidelines</span>
+                  <span class="skill-pct">88%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-progress" style="width: 88%;"></div>
+                </div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span class="skill-name">Python (Automation &amp; Scripting)</span>
+                  <span class="skill-pct">82%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-progress" style="width: 82%;"></div>
+                </div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span class="skill-name">Verilog HDL (Digital Logic)</span>
+                  <span class="skill-pct">75%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-progress" style="width: 75%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Communication Protocols & Busses -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="cat-icon">⇄</div>
+              <h3 class="skill-cat-title">Buses &amp; Protocols</h3>
+            </div>
+            <div class="chips-cloud" id="skills-protocols-list">
+              <div class="hardware-chip">
+                <span class="chip-name">CAN Bus 2.0B</span>
+                <span class="chip-desc">Automotive frame arbitration &amp; fault frames</span>
+              </div>
+              <div class="hardware-chip">
+                <span class="chip-name">UART / USART</span>
+                <span class="chip-desc">High-speed serial debug &amp; sensor streams</span>
+              </div>
+              <div class="hardware-chip">
+                <span class="chip-name">SPI Protocol</span>
+                <span class="chip-desc">Flash memories, transceivers &amp; displays</span>
+              </div>
+              <div class="hardware-chip">
+                <span class="chip-name">I²C Bus</span>
+                <span class="chip-desc">Multi-drop sensor arrays &amp; RTCs</span>
+              </div>
+              <div class="hardware-chip">
+                <span class="chip-name">PWM &amp; Timers</span>
+                <span class="chip-desc">BLDC motor actuation &amp; pulse capture</span>
+              </div>
+              <div class="hardware-chip">
+                <span class="chip-name">MQTT &amp; HTTP REST</span>
+                <span class="chip-desc">IoT telemetry bridges &amp; payments</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 3: Silicon & Platforms -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="cat-icon">⬢</div>
+              <h3 class="skill-cat-title">Silicon Platforms</h3>
+            </div>
+            <div class="chips-cloud" id="skills-hardware-list">
+              <div class="hardware-chip">
+                <span class="chip-name">STM32 (ARM Cortex-M)</span>
+                <span class="chip-desc">HAL &amp; Low-Layer (LL) driver programming</span>
+              </div>
+              <div class="hardware-chip">
+                <span class="chip-name">ESP32 / ESP8266</span>
+                <span class="chip-desc">Dual-core FreeRTOS, ESP32-CAM visual processing</span>
+              </div>
+              <div class="hardware-chip">
+                <span class="chip-name">PIC Microcontrollers</span>
+                <span class="chip-desc">PIC18F/16F hardware timers &amp; CAN bridges</span>
+              </div>
+              <div class="hardware-chip">
+                <span class="chip-name">Arduino Platforms</span>
+                <span class="chip-desc">Rapid breadboard hardware verification</span>
+              </div>
+              <div class="hardware-chip">
+                <span class="chip-name">Raspberry Pi</span>
+                <span class="chip-desc">Embedded Linux &amp; gateway telemetry</span>
+              </div>
+              <div class="hardware-chip">
+                <span class="chip-name">Custom PCB Layout</span>
+                <span class="chip-desc">2-Layer schematic, routing, grounding &amp; fabrication</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 4: Tools & Instruments -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="cat-icon">⚙</div>
+              <h3 class="skill-cat-title">Tools &amp; Lab Instruments</h3>
+            </div>
+            <div class="chips-cloud" id="skills-tools-list">
+              <span class="spec-chip" style="padding: 0.45rem 0.75rem;">Keil µVision</span>
+              <span class="spec-chip" style="padding: 0.45rem 0.75rem;">STM32CubeIDE</span>
+              <span class="spec-chip" style="padding: 0.45rem 0.75rem;">Proteus VSM</span>
+              <span class="spec-chip" style="padding: 0.45rem 0.75rem;">MATLAB / Simulink</span>
+              <span class="spec-chip" style="padding: 0.45rem 0.75rem;">Git &amp; GitHub</span>
+              <span class="spec-chip" style="padding: 0.45rem 0.75rem;">Digital Oscilloscope</span>
+              <span class="spec-chip" style="padding: 0.45rem 0.75rem;">Logic Analyzer</span>
+              <span class="spec-chip" style="padding: 0.45rem 0.75rem;">KiCad EDA</span>
+              <span class="spec-chip" style="padding: 0.45rem 0.75rem;">Razorpay API</span>
+              <span class="spec-chip" style="padding: 0.45rem 0.75rem;">VS Code</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ABOUT ME & LEADERSHIP
+         ========================================================================== -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="about-grid">
+
+          <div class="about-avatar-card">
+            <div class="about-avatar-inner">
+              <img src="assets/avatar-round.jpg" alt="Vishal Nagarajan portrait" class="about-avatar-img" width="500"
+                height="500" loading="lazy">
+            </div>
+            <div class="about-avatar-badge">
+              <span>Coimbatore, Tamil Nadu • SREC '26</span>
+            </div>
+          </div>
+
+          <div class="about-text-content">
+            <span class="section-tag">Engineering Profile</span>
+            <h2 class="section-title">Driven by Hardware-Software Co-Design</h2>
+
+            <p class="about-bio-lead">
+              Hello! I'm <strong>Vishal Nagarajan</strong>, an Electronics and Communication Engineering graduate
+              passionate about bridging low-level silicon with bulletproof firmware.
+            </p>
+
+            <p class="about-bio-sub">
+              My engineering foundation combines strict defense-grade safety compliance gained during my avionics
+              internship at <strong>Hindustan Aeronautics Limited (HAL)</strong> with high-velocity agility from
+              independently building <strong>13 hardware &amp; firmware prototypes</strong>. Whether writing
+              deterministic CAN bus transceivers, optimizing execution latency by seconds, or laying out custom PCBs, I
+              turn complex silicon challenges into robust solutions.
+            </p>
+
+            <p class="about-bio-sub" style="font-size: 0.95rem; color: #cbd5e1; margin-top: -0.5rem;">
+              🎵 <strong>Creative Pursuits:</strong> Multi-instrumentalist musician — playing <strong>bass, keyboards,
+                and classical flute</strong> as an active member of indie outfit <strong>"Sargam The Band"</strong>. As
+              former Joint Secretary of the Fine Arts Club at Sri Ramakrishna Engineering College (SREC), I have
+              directed and conducted <strong>10+ live musical productions</strong> and institutional showcases,
+              including flagship mega-events <strong>"Swagatham"</strong> and <strong>"Elatio"</strong>.
+            </p>
+
+            <div class="about-contact-links">
+              <div class="contact-chip-item">
+                <span>📍</span>
+                <span>Coimbatore, Tamil Nadu, India</span>
+              </div>
+              <a href="mailto:vishalnagarajan.work@gmail.com" class="contact-chip-item">
+                <span>✉</span>
+                <span>vishalnagarajan.work@gmail.com</span>
+              </a>
+              <a href="https://linkedin.com/in/vakxee" target="_blank" rel="noopener noreferrer"
+                class="contact-chip-item">
+                <span>🔗</span>
+                <span>linkedin.com/in/vakxee</span>
+              </a>
+              <a href="https://instagram.com/vishalnagarajan_" target="_blank" rel="noopener noreferrer"
+                class="contact-chip-item">
+                <span>📸</span>
+                <span>instagram.com/vishalnagarajan_</span>
+              </a>
+            </div>
+
+            <div style="padding-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+              <button class="btn btn-primary btn-sm" id="download-vcard-btn">
+                <span>Save Contact (.vcf)</span>
+              </button>
+              <a href="Vishal_Nagarajan_Resume.pdf" download="Vishal_Nagarajan_Resume.pdf" target="_blank"
+                rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                <span>Download Resume (PDF)</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ACHIEVEMENTS & LEADERSHIP CARDS
+         ========================================================================== -->
+    <section class="section" id="achievements">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Recognition &amp; Community</span>
+          <h2 class="section-title">Achievements &amp; Leadership</h2>
+          <p class="section-desc">
+            National hackathon podiums, academic paper awards, and student executive leadership.
+          </p>
+        </div>
+
+        <div class="achievements-grid">
+
+          <div class="achievement-card">
+            <div class="achievement-top">
+              <span class="achievement-icon">🏆</span>
+              <span class="achievement-year">May 2025</span>
+            </div>
+            <h3 class="achievement-title">Top 5 Finalist (out of 4,000+ Teams)</h3>
+            <div class="achievement-org">TECHgium 8th Edition • L&amp;T Technology Services</div>
+            <p class="achievement-detail">
+              National finalist for SkyClean, a low-cost vertical facade window-cleaning robot engineered with BLDC
+              vacuum adhesion.
+            </p>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achievement-top">
+              <span class="achievement-icon">🚗</span>
+              <span class="achievement-year">Apr 2023</span>
+            </div>
+            <h3 class="achievement-title">Top 5 Finalist — SAFETYTHON</h3>
+            <div class="achievement-org">Kumaraguru College of Technology</div>
+            <p class="achievement-detail">
+              Awarded Top 5 in Road Safety Hackathon for the "Buckle Up" automotive starter interlock powered by CAN bus
+              telemetry.
+            </p>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achievement-top">
+              <span class="achievement-icon">📄</span>
+              <span class="achievement-year">2023</span>
+            </div>
+            <h3 class="achievement-title">1st Place — Technical Paper Presentation</h3>
+            <div class="achievement-org">Dept. of Science &amp; Humanities • SREC</div>
+            <p class="achievement-detail">
+              First prize for technical research presentation detailing real-time microcontroller fault detection and
+              diagnosis methodologies.
+            </p>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achievement-top">
+              <span class="achievement-icon">🎸</span>
+              <span class="achievement-year">2024 – Present</span>
+            </div>
+            <h3 class="achievement-title">Multi-Instrumentalist — Sargam The Band</h3>
+            <div class="achievement-org">Indie Musical Collective</div>
+            <p class="achievement-detail">
+              Bassist, keyboardist, and classical flutist performing live indie productions, contemporary acoustic
+              arrangements, and regional concerts.
+            </p>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achievement-top">
+              <span class="achievement-icon">🎭</span>
+              <span class="achievement-year">2024 – 2025</span>
+            </div>
+            <h3 class="achievement-title">Joint Secretary &amp; Music Director — Fine Arts Club</h3>
+            <div class="achievement-org">Sri Ramakrishna Engineering College</div>
+            <p class="achievement-detail">
+              Conducted and directed 10+ live musical showcases and campus productions, including premier institutional
+              flagship mega-events <strong>"Swagatham"</strong> and <strong>"Elatio"</strong>.
+            </p>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achievement-top">
+              <span class="achievement-icon">💡</span>
+              <span class="achievement-year">2024 – 2025</span>
+            </div>
+            <h3 class="achievement-title">Executive Member — Social Innovation Club</h3>
+            <div class="achievement-org">Sri Ramakrishna Engineering College (SIC)</div>
+            <p class="achievement-detail">
+              Coordinated technology-driven community solutions targeting grassroots rural electrification and
+              accessibility prototypes.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         EDUCATION & CERTIFICATIONS (Higher Education Only)
+         ========================================================================== -->
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Academics &amp; Credentials</span>
+          <h2 class="section-title">Education &amp; Certifications</h2>
+          <p class="section-desc">
+            Undergraduate engineering degree complemented by verified national elite certifications.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2.5rem;">
+
+          <!-- Higher Education Column -->
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.2rem; color: #fff; margin-bottom: 0.5rem;">
+              Higher Education
+            </h3>
+
+            <div class="timeline-card">
+              <div
+                style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+                <h4 style="font-family: var(--font-heading); font-size: 1.1rem; color: #fff;">
+                  Bachelor of Engineering (B.E.) in ECE
+                </h4>
+                <span class="badge badge-lime">CGPA: 7.69</span>
+              </div>
+              <div style="color: var(--cobalt-light); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.4rem;">
+                Sri Ramakrishna Engineering College, Coimbatore
+              </div>
+              <div
+                style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-dim); margin-bottom: 0.75rem;">
+                Nov 2022 – May 2026
+              </div>
+              <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+                Specialization in Embedded Systems, Microcontroller Architectures (ARM Cortex, PIC, 8051),
+                Hardware-Software Co-Design, Digital Signal Processing, VLSI, and Real-Time Systems.
+              </p>
+            </div>
+          </div>
+
+          <!-- Certifications Column (Dynamically Loaded) -->
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.2rem; color: #fff; margin-bottom: 0.5rem;">
+              Professional Certifications
+            </h3>
+
+            <div id="certifications-container" style="display: flex; flex-direction: column; gap: 1.25rem;">
+              <!-- Dynamically populated by js/app.js -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CONTACT FORM & EMBEDDED CRM INTAKE
+         ========================================================================== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Direct Communication</span>
+          <h2 class="section-title">Start a Conversation</h2>
+          <p class="section-desc">
+            Have a project, role opening, or technical collaboration? Send a message directly into my CRM and inbox.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+
+          <div class="contact-info-panel">
+            <div class="contact-card-box">
+              <div class="contact-box-item">
+                <div class="contact-box-icon">✉</div>
+                <div class="contact-box-content">
+                  <span class="label">Email Address</span>
+                  <a href="mailto:vishalnagarajan.work@gmail.com" class="val">vishalnagarajan.work@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="contact-box-item">
+                <div class="contact-box-icon">🔗</div>
+                <div class="contact-box-content">
+                  <span class="label">LinkedIn Profile</span>
+                  <a href="https://linkedin.com/in/vakxee" target="_blank" rel="noopener noreferrer"
+                    class="val">linkedin.com/in/vakxee</a>
+                </div>
+              </div>
+
+              <div class="contact-box-item">
+                <div class="contact-box-icon">📸</div>
+                <div class="contact-box-content">
+                  <span class="label">Instagram Profile</span>
+                  <a href="https://instagram.com/vishalnagarajan_" target="_blank" rel="noopener noreferrer"
+                    class="val">instagram.com/vishalnagarajan_</a>
+                </div>
+              </div>
+
+              <div class="contact-box-item">
+                <div class="contact-box-icon">📍</div>
+                <div class="contact-box-content">
+                  <span class="label">Current Location</span>
+                  <span class="val">Coimbatore, Tamil Nadu, India</span>
+                </div>
+              </div>
+
+              <div class="contact-box-item">
+                <div class="contact-box-icon">⚡</div>
+                <div class="contact-box-content">
+                  <span class="label">Response Time</span>
+                  <span class="val" style="color: var(--acid-lime);">Usually within 24 Hours</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="background: rgba(8, 14, 28, 0.7); border: 1px solid var(--cobalt-border); border-radius: var(--radius-md); padding: 1.5rem;">
+              <h4
+                style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--acid-lime); margin-bottom: 0.5rem;">
+                // AVAILABILITY NOTICE
+              </h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+                Currently considering full-time Embedded Software Engineer / Firmware Developer roles, avionics &amp;
+                automotive R&amp;D contracts, and IoT engineering consulting.
+              </p>
+            </div>
+          </div>
+
+          <!-- Contact Form with Direct CRM capture -->
+          <div class="contact-form-panel">
+            <h3 style="font-family: var(--font-heading); font-size: 1.3rem; color: #fff; margin-bottom: 1.5rem;">
+              Send an Inquiry (Captured to CRM)
+            </h3>
+
+            <form id="portfolio-contact-form">
+              <div class="form-group-row">
+                <div class="form-group">
+                  <label for="contact-name" class="form-label">Full Name *</label>
+                  <input type="text" id="contact-name" class="form-control" placeholder="e.g. Anand Kumar" required>
+                </div>
+                <div class="form-group">
+                  <label for="contact-email" class="form-label">Email Address *</label>
+                  <input type="email" id="contact-email" class="form-control" placeholder="e.g. anand@company.com"
+                    required>
+                </div>
+              </div>
+
+              <div class="form-group-row">
+                <div class="form-group">
+                  <label for="contact-phone" class="form-label">Phone / WhatsApp (Optional)</label>
+                  <input type="tel" id="contact-phone" class="form-control" placeholder="Optional for phone callback">
+                </div>
+                <div class="form-group">
+                  <label for="contact-company" class="form-label">Organization / Company</label>
+                  <input type="text" id="contact-company" class="form-control" placeholder="Company or Institution">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-type" class="form-label">Inquiry Purpose</label>
+                <select id="contact-type" class="form-control">
+                  <option value="Full-Time Engineering Role">Full-Time Engineering Opportunity</option>
+                  <option value="Embedded Firmware Consulting">Embedded Firmware / Hardware Consulting</option>
+                  <option value="CAN Bus & Automotive Project">CAN Bus / Automotive Electronics Project</option>
+                  <option value="Academic Research Collaboration">Academic / Research Collaboration</option>
+                  <option value="Other Technical Inquiry">Other Technical Inquiry</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Message / Project Details *</label>
+                <textarea id="contact-message" class="form-control" rows="4"
+                  placeholder="Briefly describe your requirements, project scope, or opportunity..."
+                  required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                <span>Transmit Message to VN &amp; Email</span>
+                <span>→</span>
+              </button>
+
+              <div id="contact-form-alert" class="form-alert"></div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       SITE FOOTER (Clean & Public)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="name">Vishal Nagarajan</div>
+          <div class="tagline">Embedded Software Engineer • Firmware • Safety-Critical Avionics &amp; Automotive</div>
+        </div>
+
+        <div class="footer-links">
+          <a href="#hero">Top</a>
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#publication">Publication</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="https://linkedin.com/in/vakxee" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a href="https://instagram.com/vishalnagarajan_" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 <span id="secret-admin-copyright" style="cursor: default;" title="Vishal Nagarajan">Vishal
+            Nagarajan</span>. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       PROJECT DETAIL SPECIFICATION MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="project-detail-modal" role="dialog" aria-modal="true"
+    aria-labelledby="project-modal-content">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeProjectModal()" aria-label="Close modal">✕</button>
+      <div id="project-modal-content">
+        <!-- Content injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       ADMIN PANEL & CRM MODAL (Discreet: Alt+A / #admin / Footer Copyright)
+       ========================================================================== -->
+  <div class="admin-modal-overlay" id="admin-crm-modal" role="dialog" aria-modal="true">
+    <div class="admin-modal-box">
+
+      <div class="admin-modal-header">
+        <div class="admin-modal-title">
+          <span>⚡ Embedded Admin &amp; CRM Console</span>
+          <span class="badge badge-lime">Secure Access</span>
+        </div>
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <button class="admin-close-btn" id="admin-header-lock-btn" title="Lock Console"
+            style="color: var(--acid-lime); font-size: 0.95rem;">🔒</button>
+          <button class="admin-close-btn" id="admin-modal-close" aria-label="Close admin modal">✕</button>
+        </div>
+      </div>
+
+      <!-- Lock Screen View -->
+      <div id="admin-lock-screen" class="admin-lock-screen">
+        <div class="lock-icon">🔒</div>
+        <h3 style="font-family: var(--font-heading); font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem;">
+          Engineer Access Required
+        </h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          Enter your admin passcode to manage work experience, projects, certifications, publications, and CRM leads.
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <input type="password" id="admin-passcode-input" class="form-control" placeholder="Enter Admin Passcode"
+            style="text-align: center; letter-spacing: 0.15em;">
+          <button id="admin-unlock-btn" class="btn btn-primary">Unlock Console</button>
+          <div id="admin-auth-error"
+            style="color: #ef4444; font-size: 0.78rem; font-family: var(--font-mono); display: none;"></div>
+        </div>
+      </div>
+
+      <!-- Unlocked Dashboard View -->
+      <div id="admin-dashboard-view" style="display: none;">
+        <nav class="admin-tabs-nav">
+          <button class="admin-tab-btn active" data-tab="experience">
+            <span>💼 Experience</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="projects">
+            <span>📁 Projects</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="skills">
+            <span>⚡ Skills &amp; Silicon</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="certs">
+            <span>📜 Certifications</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="pubs">
+            <span>📚 Publications</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="crm">
+            <span>👥 Leads CRM</span>
+            <span id="crm-lead-count" class="badge badge-lime" style="font-size: 0.65rem;">0 Leads</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="sync">
+            <span>🔄 Google Sites &amp; Sync</span>
+          </button>
+        </nav>
+
+        <div class="admin-modal-body">
+
+          <!-- TAB 1: WORK EXPERIENCE MANAGER -->
+          <div class="admin-tab-pane active" id="tab-experience">
+            <div class="admin-card">
+              <div class="admin-card-title">
+                <span id="exp-form-heading">Add / Edit Work Experience</span>
+                <span class="badge badge-lime">Career Timeline</span>
+              </div>
+
+              <form id="admin-exp-form">
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label class="form-label">Job Title / Role *</label>
+                    <input type="text" id="exp-form-role" class="form-control"
+                      placeholder="e.g. Senior Firmware Engineer" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Company / Organization *</label>
+                    <input type="text" id="exp-form-org" class="form-control"
+                      placeholder="e.g. Hindustan Aeronautics Limited / Bosch" required>
+                  </div>
+                </div>
+
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label class="form-label">Location</label>
+                    <input type="text" id="exp-form-location" class="form-control"
+                      placeholder="e.g. Bengaluru, Karnataka">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Period / Dates *</label>
+                    <input type="text" id="exp-form-period" class="form-control"
+                      placeholder="e.g. Jan 2024 – Feb 2024 / Jul 2026 – Present" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Badge / Domain Tag</label>
+                  <input type="text" id="exp-form-badge" class="form-control"
+                    placeholder="e.g. Defense & Aerospace Avionics / Full-Time">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Key Highlights &amp; Accomplishments (One bullet per line)</label>
+                  <textarea id="exp-form-highlights" class="form-control" rows="4"
+                    placeholder="Optimized algorithm latency by 1.04s through memory alignment&#10;Enforced MISRA C coding standards across mission-critical avionics firmware"></textarea>
+                </div>
+
+                <div style="display: flex; gap: 0.75rem; align-items: center; margin-top: 1rem;">
+                  <button type="submit" id="exp-form-submit-btn" class="btn btn-primary btn-sm">Add Work
+                    Experience</button>
+                  <button type="button" id="exp-form-cancel-btn" class="btn btn-outline btn-sm" style="display: none;"
+                    onclick="cancelExpEdit()">Cancel</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="admin-card">
+              <div class="admin-card-title">
+                <span>Existing Work Experience</span>
+                <span style="font-size: 0.75rem; color: var(--text-dim); font-family: var(--font-mono);">Live Timeline
+                  Sync</span>
+              </div>
+              <div class="crm-table-container">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Role &amp; Organization</th>
+                      <th>Period</th>
+                      <th>Domain Badge</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-exp-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: PROJECTS MANAGER -->
+          <div class="admin-tab-pane" id="tab-projects">
+
+            <div class="admin-card">
+              <div class="admin-card-title">
+                <span id="proj-form-heading">Add / Edit Portfolio Project</span>
+                <span class="badge badge-cobalt">Live DOM Sync</span>
+              </div>
+
+              <form id="admin-project-form">
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label class="form-label">Project Title *</label>
+                    <input type="text" id="proj-form-title" class="form-control"
+                      placeholder="e.g. CAN Bus Battery Management Logger" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Category *</label>
+                    <select id="proj-form-category" class="form-control">
+                      <option value="robotics">Robotics &amp; Automation</option>
+                      <option value="safety">Safety &amp; Diagnostics</option>
+                      <option value="iot">IoT &amp; Campus Systems</option>
+                      <option value="automotive">Automotive &amp; CAN</option>
+                      <option value="freelance">Commercial Hardware</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label class="form-label">Category Display Label</label>
+                    <input type="text" id="proj-form-catlabel" class="form-control"
+                      placeholder="e.g. Automotive &amp; CAN Protocol">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Date / Timeline *</label>
+                    <input type="text" id="proj-form-date" class="form-control" placeholder="e.g. May 2026" required>
+                  </div>
+                </div>
+
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label class="form-label">Award / Badge Text</label>
+                    <input type="text" id="proj-form-badge" class="form-control"
+                      placeholder="e.g. 1st Place National Hackathon">
+                  </div>
+                  <div class="form-group" style="justify-content: center;">
+                    <label class="form-label">Featured on Home?</label>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.35rem;">
+                      <input type="checkbox" id="proj-form-featured"
+                        style="accent-color: var(--acid-lime); transform: scale(1.3);">
+                      <span style="font-size: 0.85rem; color: #fff;">Pin as Featured Card</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Short Summary (Displayed on Card) *</label>
+                  <textarea id="proj-form-summary" class="form-control" rows="2"
+                    placeholder="Brief 1-2 sentence overview of the prototype..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Detailed Description (Displayed in Modal Specs)</label>
+                  <textarea id="proj-form-description" class="form-control" rows="3"
+                    placeholder="Full technical explanation of architecture, challenges and solutions..."></textarea>
+                </div>
+
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label class="form-label">Hardware &amp; Silicon (Comma separated)</label>
+                    <input type="text" id="proj-form-hardware" class="form-control"
+                      placeholder="STM32, MCP2515 CAN, ESP32">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Protocols &amp; Buses (Comma separated)</label>
+                    <input type="text" id="proj-form-protocols" class="form-control"
+                      placeholder="CAN 2.0B, SPI, UART, PWM">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Engineering Highlights (One bullet point per line)</label>
+                  <textarea id="proj-form-highlights" class="form-control" rows="3"
+                    placeholder="Reduced sensor latency to under 2ms&#10;Programmed deterministic interrupt handlers in Embedded C"></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">GitHub / Paper / Demo URL</label>
+                  <input type="url" id="proj-form-url" class="form-control"
+                    placeholder="https://github.com/... or https://doi.org/...">
+                </div>
+
+                <div style="display: flex; gap: 0.75rem; align-items: center; margin-top: 1rem;">
+                  <button type="submit" id="proj-form-submit-btn" class="btn btn-primary btn-sm">Add Project to
+                    Portfolio</button>
+                  <button type="button" id="proj-form-cancel-btn" class="btn btn-outline btn-sm" style="display: none;"
+                    onclick="cancelProjectEdit()">Cancel Edit</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="admin-card">
+              <div class="admin-card-title">
+                <span>Existing Portfolio Projects</span>
+                <span style="font-size: 0.75rem; color: var(--text-dim); font-family: var(--font-mono);">Live DOM
+                  Sync</span>
+              </div>
+
+              <div class="crm-table-container">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Project Title</th>
+                      <th>Category</th>
+                      <th>Date</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-projects-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- TAB: SKILLS & SILICON ECOSYSTEM MANAGER -->
+          <div class="admin-tab-pane" id="tab-skills">
+            <div class="admin-card">
+              <div class="admin-card-title">
+                <span id="skill-form-heading">Add / Edit Skill or Silicon Platform</span>
+                <span class="badge badge-lime">Silicon Ecosystem</span>
+              </div>
+
+              <form id="admin-skill-form">
+                <input type="hidden" id="skill-form-index" value="-1">
+                <input type="hidden" id="skill-form-orig-cat" value="">
+
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label class="form-label">Category *</label>
+                    <select id="skill-form-category" class="form-control">
+                      <option value="hardware">Silicon Platforms &amp; Hardware (e.g. STM32, ESP32, nRF52, Custom PCB)
+                      </option>
+                      <option value="protocols">Buses &amp; Protocols (e.g. CAN Bus, SPI, I²C, UART, MQTT)</option>
+                      <option value="programming">Firmware &amp; Low-Level (e.g. Embedded C, C++, Verilog)</option>
+                      <option value="tools">Tools &amp; Lab Instruments (e.g. Logic Analyzer, Keil)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Name / Platform Title *</label>
+                    <input type="text" id="skill-form-name" class="form-control"
+                      placeholder="e.g. Nordic nRF52 (BLE) / CAN-FD" required>
+                  </div>
+                </div>
+
+                <div class="form-group-row">
+                  <div class="form-group" style="flex: 2;">
+                    <label class="form-label" id="skill-desc-label">Description / Technical Scope</label>
+                    <input type="text" id="skill-form-desc" class="form-control"
+                      placeholder="e.g. Low-power BLE 5.3 SoC, Zephyr RTOS &amp; mesh telemetry">
+                  </div>
+                  <div class="form-group" id="skill-level-group" style="flex: 1;">
+                    <label class="form-label">Proficiency Level (%)</label>
+                    <input type="number" id="skill-form-level" class="form-control" min="10" max="100" value="90"
+                      placeholder="90">
+                  </div>
+                </div>
+
+                <div style="display: flex; gap: 0.75rem; align-items: center; margin-top: 1rem;">
+                  <button type="submit" id="skill-form-submit-btn" class="btn btn-primary btn-sm">Add to Silicon
+                    Ecosystem</button>
+                  <button type="button" id="skill-form-cancel-btn" class="btn btn-outline btn-sm" style="display: none;"
+                    onclick="cancelSkillEdit()">Cancel</button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Silicon Platforms & Hardware List -->
+            <div class="admin-card">
+              <div class="admin-card-title">
+                <span>⬢ Silicon Platforms &amp; Hardware</span>
+                <span class="badge badge-cobalt" id="admin-hardware-count">0 items</span>
+              </div>
+              <div class="crm-table-container">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Platform / Chip</th>
+                      <th>Technical Scope &amp; Applications</th>
+                      <th style="width: 120px;">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-hardware-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Buses & Protocols List -->
+            <div class="admin-card">
+              <div class="admin-card-title">
+                <span>⇄ Buses &amp; Protocols</span>
+                <span class="badge badge-cobalt" id="admin-protocols-count">0 items</span>
+              </div>
+              <div class="crm-table-container">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Protocol Name</th>
+                      <th>Implementation Details</th>
+                      <th style="width: 120px;">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-protocols-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Firmware & Low-Level Languages List -->
+            <div class="admin-card">
+              <div class="admin-card-title">
+                <span>&lt;/&gt; Firmware &amp; Low-Level Languages</span>
+                <span class="badge badge-cobalt" id="admin-programming-count">0 items</span>
+              </div>
+              <div class="crm-table-container">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Skill / Language</th>
+                      <th>Mastery Level</th>
+                      <th style="width: 120px;">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-programming-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Tools & Lab Instruments List -->
+            <div class="admin-card">
+              <div class="admin-card-title">
+                <span>⚙ Tools &amp; Lab Instruments</span>
+                <span class="badge badge-cobalt" id="admin-tools-count">0 items</span>
+              </div>
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;"
+                id="admin-tools-tags-container">
+                <!-- Injected dynamically -->
+              </div>
+              <div style="display: flex; gap: 0.75rem; max-width: 460px;">
+                <input type="text" id="admin-quick-tool-input" class="form-control"
+                  placeholder="Add tool (e.g. Saleae Logic Pro)...">
+                <button type="button" class="btn btn-primary btn-sm" onclick="addQuickToolFromInput()">+ Add
+                  Tool</button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- TAB 4: CERTIFICATIONS MANAGER -->
+          <div class="admin-tab-pane" id="tab-certs">
+            <div class="admin-card">
+              <div class="admin-card-title">
+                <span>Add / Edit Certification</span>
+                <span class="badge badge-lime">Portfolio Credentials</span>
+              </div>
+
+              <form id="admin-cert-form">
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label class="form-label">Certification Title *</label>
+                    <input type="text" id="cert-form-title" class="form-control"
+                      placeholder="e.g. ARM Cortex-M Embedded Architecture" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Issuing Organization *</label>
+                    <input type="text" id="cert-form-issuer" class="form-control"
+                      placeholder="e.g. NPTEL (IIT) / ARM / Google" required>
+                  </div>
+                </div>
+
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label class="form-label">Year / Date</label>
+                    <input type="text" id="cert-form-date" class="form-control" placeholder="e.g. 2025">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Badge Label</label>
+                    <input type="text" id="cert-form-badge" class="form-control" placeholder="e.g. Elite / Verified">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Skills &amp; Competencies Covered</label>
+                  <textarea id="cert-form-skills" class="form-control" rows="2"
+                    placeholder="Timers, NVIC interrupts, DMA, low-power sleep modes..."></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Verification Credential URL (Optional)</label>
+                  <input type="url" id="cert-form-url" class="form-control"
+                    placeholder="https://nptel.ac.in/noc/Ecertificate/?q=...">
+                </div>
+
+                <div style="display: flex; gap: 0.75rem; align-items: center; margin-top: 1rem;">
+                  <button type="submit" id="cert-form-submit-btn" class="btn btn-primary btn-sm">Add
+                    Certification</button>
+                  <button type="button" id="cert-form-cancel-btn" class="btn btn-outline btn-sm" style="display: none;"
+                    onclick="cancelCertEdit()">Cancel</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="admin-card">
+              <div class="admin-card-title">
+                <span>Existing Certifications</span>
+              </div>
+              <div class="crm-table-container">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Title &amp; Skills</th>
+                      <th>Issuer</th>
+                      <th>Year</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-certs-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 4: PUBLICATIONS MANAGER -->
+          <div class="admin-tab-pane" id="tab-pubs">
+            <div class="admin-card">
+              <div class="admin-card-title">
+                <span>Add / Edit Publication</span>
+                <span class="badge badge-lime">Scholarly Articles</span>
+              </div>
+
+              <form id="admin-pub-form">
+                <div class="form-group">
+                  <label class="form-label">Publication / Paper Title *</label>
+                  <input type="text" id="pub-form-title" class="form-control"
+                    placeholder="e.g. Real-Time Fault Detection in Microcontrollers" required>
+                </div>
+
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label class="form-label">Authors *</label>
+                    <input type="text" id="pub-form-authors" class="form-control"
+                      placeholder="e.g. Dr. M. Ezhilarasi & Vishal Nagarajan" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Journal / Conference *</label>
+                    <input type="text" id="pub-form-journal" class="form-control" placeholder="e.g. INTI Journal"
+                      required>
+                  </div>
+                </div>
+
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label class="form-label">Year</label>
+                    <input type="text" id="pub-form-year" class="form-control" placeholder="e.g. 2026">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Volume / Issue</label>
+                    <input type="text" id="pub-form-volume" class="form-control" placeholder="e.g. 2026">
+                  </div>
+                </div>
+
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label class="form-label">Pages / Article Number</label>
+                    <input type="text" id="pub-form-pages" class="form-control" placeholder="e.g. 224">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">DOI (Digital Object Identifier)</label>
+                    <input type="text" id="pub-form-doi" class="form-control"
+                      placeholder="e.g. 10.61453/INTIj.20260227">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Direct DOI / Paper URL</label>
+                  <input type="url" id="pub-form-url" class="form-control"
+                    placeholder="https://doi.org/10.61453/INTIj.20260227">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Abstract</label>
+                  <textarea id="pub-form-abstract" class="form-control" rows="3"
+                    placeholder="Summary of research methodology and outcomes..."></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Standard Citation String</label>
+                  <input type="text" id="pub-form-citation" class="form-control"
+                    placeholder="Ezhilarasi, M. & Nagarajan, Vishal. (2026)...">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">BibTeX Entry (Optional)</label>
+                  <textarea id="pub-form-bibtex" class="form-control" rows="3" placeholder="@article{...}"></textarea>
+                </div>
+
+                <div style="display: flex; gap: 0.75rem; align-items: center; margin-top: 1rem;">
+                  <button type="submit" id="pub-form-submit-btn" class="btn btn-primary btn-sm">Add Publication</button>
+                  <button type="button" id="pub-form-cancel-btn" class="btn btn-outline btn-sm" style="display: none;"
+                    onclick="cancelPubEdit()">Cancel</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="admin-card">
+              <div class="admin-card-title">
+                <span>Existing Publications</span>
+              </div>
+              <div class="crm-table-container">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Title &amp; Authors</th>
+                      <th>Journal</th>
+                      <th>Year</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-pubs-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 5: CRM LEADS & INQUIRIES -->
+          <div class="admin-tab-pane" id="tab-crm">
+            <div
+              style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem;">
+              <div>
+                <h3 style="font-family: var(--font-heading); font-size: 1.15rem; color: #fff;">Inbound Leads &amp;
+                  Recruiters CRM</h3>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Manage inquiries captured directly through your
+                  portfolio contact form.</p>
+              </div>
+              <button class="btn btn-outline btn-sm" onclick="exportLeadsCSV()">
+                <span>📥 Export Leads (CSV)</span>
+              </button>
+            </div>
+
+            <div class="crm-table-container" style="margin-bottom: 1.5rem;">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Lead Name &amp; Company</th>
+                    <th>Contact Info</th>
+                    <th>Interest</th>
+                    <th>Status</th>
+                    <th>Notes</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-crm-tbody"></tbody>
+              </table>
+            </div>
+
+            <div class="admin-card">
+              <div class="admin-card-title">Add Manual Lead (e.g. from LinkedIn, Hackathon, or Phone)</div>
+              <form id="admin-manual-lead-form">
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label class="form-label">Contact Name *</label>
+                    <input type="text" id="manual-lead-name" class="form-control" placeholder="Recruiter / Client Name"
+                      required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" id="manual-lead-email" class="form-control" placeholder="name@company.com">
+                  </div>
+                </div>
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label class="form-label">Phone</label>
+                    <input type="tel" id="manual-lead-phone" class="form-control" placeholder="+91 ...">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Company / Organization</label>
+                    <input type="text" id="manual-lead-company" class="form-control" placeholder="Company Name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Inquiry Scope / Opportunity</label>
+                  <input type="text" id="manual-lead-type" class="form-control"
+                    placeholder="e.g. Embedded Firmware Engineer Opening">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Conversation Notes</label>
+                  <textarea id="manual-lead-notes" class="form-control" rows="2"
+                    placeholder="Interview scheduled for next Tuesday, discussed CAN bus project..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">Save Lead to CRM</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- TAB 6: GOOGLE SITES & BACKUP SYNC -->
+          <div class="admin-tab-pane" id="tab-sync">
+
+            <div class="admin-card">
+              <div class="admin-card-title">Google Sites Embedding Snippet</div>
+              <p style="font-size: 0.88rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 1rem;">
+                Host this portfolio for free on GitHub Pages, then copy this snippet to embed it inside Google Sites
+                with 100% full-screen responsiveness:
+              </p>
+
+              <button class="btn btn-cobalt btn-sm" onclick="copyGoogleSitesEmbedSnippet()">
+                <span>📋 Copy Google Sites Iframe Embed Code</span>
+              </button>
+            </div>
+
+            <!-- Full Backup & Restore -->
+            <div class="admin-card">
+              <div class="admin-card-title">Full Backup &amp; Restore</div>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+                Safely export all your custom work experience, projects, certifications, publications, and CRM leads as
+                a JSON file, or restore from an existing backup.
+              </p>
+
+              <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+                <button class="btn btn-primary btn-sm" onclick="exportSystemBackup()">
+                  <span>💾 Download Full Backup (JSON)</span>
+                </button>
+
+                <label class="btn btn-outline btn-sm" style="margin-bottom: 0; cursor: pointer;">
+                  <span>📂 Restore from Backup (JSON)</span>
+                  <input type="file" accept=".json" onchange="importSystemBackup(event)" style="display: none;">
+                </label>
+
+                <button class="btn btn-outline btn-sm" style="border-color: #ef4444; color: #f87171;"
+                  onclick="resetToFactoryDefaults()">
+                  <span>⚠️ Reset to Defaults</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/projects-data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/admin-crm.js"></script>
+</body>
+
+</html>
