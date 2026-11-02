@@ -120,7 +120,7 @@ Vishal2004!
 
 - **Inbound Leads CRM**: Inquiries sent through your portfolio contact form are automatically captured inside the CRM tab with 1-click **Export Leads (CSV)**.
 - **Live Skills & Silicon Manager**: Add new chips, microcontrollers, protocols, or languages in the `⚡ Skills & Silicon` tab at any time; changes sync instantly.
-- **Projects & Work Experience**: Add or edit projects and career milestones as you complete them.
+- **Projects & Work Experience**: Add, edit, or freely reorder projects and career milestones using drag-and-drop or Move Up / Down (▲ / ▼) buttons. Syncs instantly to your live timeline & DOM, with 1-click **Export Updated projects-data.js**.
 - **Full JSON Backup**: Go to `Google Sites & Sync` > **Download Full Backup (JSON)** to save your customized configuration anytime.
 
 ---

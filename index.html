@@ -291,6 +291,19 @@
           </p>
         </div>
 
+        <div class="experience-controls-wrapper">
+          <div class="timeline-sort-control">
+            <label for="experience-sort-select" class="sort-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 16 4 4 4-4"/><path d="M7 20V4"/><path d="m21 8-4-4-4 4"/><path d="M17 4v16"/></svg>
+              Timeline:
+            </label>
+            <select id="experience-sort-select" class="sort-select" title="Reorder work experience view">
+              <option value="curated">Curated Order (Default)</option>
+              <option value="reverse">Reverse Order</option>
+            </select>
+          </div>
+        </div>
+
         <div class="timeline" id="experience-container">
           <!-- Dynamically populated by js/app.js -->
         </div>
@@ -310,14 +323,29 @@
           </p>
         </div>
 
-        <div class="projects-filter-bar">
-          <button class="filter-btn active" data-filter="all">All Projects</button>
-          <button class="filter-btn" data-filter="featured">★ Top Awards &amp; Research</button>
-          <button class="filter-btn" data-filter="robotics">Robotics &amp; Automation</button>
-          <button class="filter-btn" data-filter="safety">Safety &amp; Diagnostics</button>
-          <button class="filter-btn" data-filter="iot">IoT &amp; Campus Systems</button>
-          <button class="filter-btn" data-filter="automotive">Automotive &amp; CAN</button>
-          <button class="filter-btn" data-filter="freelance">Commercial Prototypes</button>
+        <div class="projects-controls-wrapper">
+          <div class="projects-filter-bar">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="featured">★ Top Awards &amp; Research</button>
+            <button class="filter-btn" data-filter="robotics">Robotics &amp; Automation</button>
+            <button class="filter-btn" data-filter="safety">Safety &amp; Diagnostics</button>
+            <button class="filter-btn" data-filter="iot">IoT &amp; Campus Systems</button>
+            <button class="filter-btn" data-filter="automotive">Automotive &amp; CAN</button>
+            <button class="filter-btn" data-filter="freelance">Commercial Prototypes</button>
+          </div>
+
+          <div class="projects-sort-control">
+            <label for="projects-sort-select" class="sort-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 16 4 4 4-4"/><path d="M7 20V4"/><path d="m21 8-4-4-4 4"/><path d="M17 4v16"/></svg>
+              Sort:
+            </label>
+            <select id="projects-sort-select" class="sort-select" title="Reorder projects view">
+              <option value="curated">Curated / Default</option>
+              <option value="newest">Newest First</option>
+              <option value="oldest">Oldest First</option>
+              <option value="title-asc">Title (A → Z)</option>
+            </select>
+          </div>
         </div>
 
         <div class="projects-grid" id="projects-container">
@@ -1027,13 +1055,16 @@
             <div class="admin-card">
               <div class="admin-card-title">
                 <span>Existing Work Experience</span>
-                <span style="font-size: 0.75rem; color: var(--text-dim); font-family: var(--font-mono);">Live Timeline
-                  Sync</span>
+                <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+                  <span class="badge badge-lime" style="font-size: 0.7rem;">⠿ Drag or ▲ / ▼ to reorder</span>
+                  <span style="font-size: 0.75rem; color: var(--text-dim); font-family: var(--font-mono);">Live Timeline Sync</span>
+                </div>
               </div>
               <div class="crm-table-container">
                 <table class="admin-table">
                   <thead>
                     <tr>
+                      <th style="width: 85px; text-align: center;">Order</th>
                       <th>Role &amp; Organization</th>
                       <th>Period</th>
                       <th>Domain Badge</th>
@@ -1151,14 +1182,17 @@
             <div class="admin-card">
               <div class="admin-card-title">
                 <span>Existing Portfolio Projects</span>
-                <span style="font-size: 0.75rem; color: var(--text-dim); font-family: var(--font-mono);">Live DOM
-                  Sync</span>
+                <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+                  <span class="badge badge-lime" style="font-size: 0.7rem;">⠿ Drag or ▲ / ▼ to reorder</span>
+                  <span style="font-size: 0.75rem; color: var(--text-dim); font-family: var(--font-mono);">Live DOM Sync</span>
+                </div>
               </div>
 
               <div class="crm-table-container">
                 <table class="admin-table">
                   <thead>
                     <tr>
+                      <th style="width: 85px; text-align: center;">Order</th>
                       <th>Project Title</th>
                       <th>Category</th>
                       <th>Date</th>
@@ -1577,6 +1611,10 @@
               <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
                 <button class="btn btn-primary btn-sm" onclick="exportSystemBackup()">
                   <span>💾 Download Full Backup (JSON)</span>
+                </button>
+
+                <button class="btn btn-cobalt btn-sm" onclick="exportProjectsDataJs()">
+                  <span>📄 Export Updated projects-data.js</span>
                 </button>
 
                 <label class="btn btn-outline btn-sm" style="margin-bottom: 0; cursor: pointer;">

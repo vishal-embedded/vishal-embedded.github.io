@@ -107,6 +107,28 @@ function initInteractiveCanvas() {
   animate();
 }
 
+// Helper to parse dates like "May 2025", "Feb 2024 - Present" for sorting
+function parseProjectDate(dateStr) {
+  if (!dateStr) return 0;
+  if (/present/i.test(dateStr)) return Date.now();
+  const months = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
+  const match = dateStr.match(/([A-Za-z]{3,})\s+(\d{4})/);
+  if (match) {
+    const month = months[match[1].toLowerCase().slice(0, 3)] || 0;
+    const year = parseInt(match[2], 10);
+    return new Date(year, month, 1).getTime();
+  }
+  const yearMatch = dateStr.match(/\d{4}/);
+  if (yearMatch) {
+    return new Date(parseInt(yearMatch[0], 10), 0, 1).getTime();
+  }
+  return 0;
+}
+
+window.currentProjectFilter = 'all';
+window.currentProjectSort = 'curated';
+window.currentExperienceSort = 'curated';
+
 // ==========================================================================
 // DYNAMIC WORK EXPERIENCE RENDERING
 // ==========================================================================
@@ -115,7 +137,15 @@ window.renderExperience = function() {
   if (!container) return;
 
   const data = getStoredPortfolioData();
-  const experiences = data.experience || [];
+  let experiences = [...(data.experience || [])];
+
+  const expSortSelect = document.getElementById('experience-sort-select');
+  if (expSortSelect) {
+    window.currentExperienceSort = expSortSelect.value;
+  }
+  if (window.currentExperienceSort === 'reverse') {
+    experiences.reverse();
+  }
 
   if (experiences.length === 0) {
     container.innerHTML = `<p style="color: var(--text-muted); font-family: var(--font-mono);">No experience records added yet.</p>`;
@@ -150,12 +180,26 @@ window.renderExperience = function() {
 // ==========================================================================
 // DYNAMIC PROJECTS RENDERING & FILTERING
 // ==========================================================================
-window.renderProjects = function(filterCategory = 'all') {
+window.renderProjects = function(filterCategory = window.currentProjectFilter || 'all') {
+  window.currentProjectFilter = filterCategory;
   const container = document.getElementById('projects-container');
   if (!container) return;
 
   const data = getStoredPortfolioData();
-  const projects = data.projects;
+  let projects = [...(data.projects || [])];
+
+  const sortSelect = document.getElementById('projects-sort-select');
+  if (sortSelect) {
+    window.currentProjectSort = sortSelect.value;
+  }
+
+  if (window.currentProjectSort === 'newest') {
+    projects.sort((a, b) => parseProjectDate(b.date) - parseProjectDate(a.date));
+  } else if (window.currentProjectSort === 'oldest') {
+    projects.sort((a, b) => parseProjectDate(a.date) - parseProjectDate(b.date));
+  } else if (window.currentProjectSort === 'title-asc') {
+    projects.sort((a, b) => a.title.localeCompare(b.title));
+  }
 
   const filtered = filterCategory === 'all'
     ? projects
@@ -216,9 +260,26 @@ function initProjectFilters() {
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const cat = btn.getAttribute('data-filter');
+      window.currentProjectFilter = cat;
       renderProjects(cat);
     });
   });
+
+  const sortSelect = document.getElementById('projects-sort-select');
+  if (sortSelect) {
+    sortSelect.addEventListener('change', () => {
+      window.currentProjectSort = sortSelect.value;
+      renderProjects(window.currentProjectFilter || 'all');
+    });
+  }
+
+  const expSortSelect = document.getElementById('experience-sort-select');
+  if (expSortSelect) {
+    expSortSelect.addEventListener('change', () => {
+      window.currentExperienceSort = expSortSelect.value;
+      renderExperience();
+    });
+  }
 }
 
 // ==========================================================================

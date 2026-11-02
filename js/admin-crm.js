@@ -209,12 +209,20 @@ function refreshAdminExperienceTable() {
   const experiences = data.experience || [];
 
   if (experiences.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--text-dim); padding: 1.5rem;">No experience records found.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: var(--text-dim); padding: 1.5rem;">No experience records found.</td></tr>`;
     return;
   }
 
-  tbody.innerHTML = experiences.map(exp => `
-    <tr>
+  tbody.innerHTML = experiences.map((exp, idx) => `
+    <tr class="draggable-row" draggable="true" data-exp-index="${idx}" data-exp-id="${escapeHtml(exp.id)}">
+      <td style="text-align: center; white-space: nowrap;">
+        <div style="display: inline-flex; align-items: center; justify-content: center; gap: 4px;">
+          <span class="drag-handle" title="Drag to reorder" style="cursor: grab; color: var(--text-dim); font-size: 1.15rem; user-select: none; line-height: 1; padding-right: 2px;">⠿</span>
+          <span class="order-badge">#${idx + 1}</span>
+          <button type="button" class="btn btn-outline btn-sm reorder-btn" title="Move Up" ${idx === 0 ? 'disabled' : ''} onclick="moveExperience(${idx}, -1)">▲</button>
+          <button type="button" class="btn btn-outline btn-sm reorder-btn" title="Move Down" ${idx === experiences.length - 1 ? 'disabled' : ''} onclick="moveExperience(${idx}, 1)">▼</button>
+        </div>
+      </td>
       <td>
         <strong style="color: #fff; display: block;">${escapeHtml(exp.role)}</strong>
         <span style="font-size: 0.74rem; color: var(--cobalt-light);">${escapeHtml(exp.organization)}${exp.location ? ` • ${escapeHtml(exp.location)}` : ''}</span>
@@ -227,6 +235,95 @@ function refreshAdminExperienceTable() {
       </td>
     </tr>
   `).join('');
+
+  attachExperienceDragListeners(tbody);
+}
+
+window.moveExperience = function(index, direction) {
+  const data = getStoredPortfolioData();
+  const experiences = [...(data.experience || [])];
+  const targetIndex = index + direction;
+  if (targetIndex < 0 || targetIndex >= experiences.length) return;
+
+  const [moved] = experiences.splice(index, 1);
+  experiences.splice(targetIndex, 0, moved);
+
+  saveExperienceData(experiences);
+  refreshAdminExperienceTable();
+  if (typeof renderExperience === 'function') {
+    renderExperience();
+  }
+  showToast(`✓ Moved "${moved.role}" ${direction < 0 ? 'up' : 'down'}`);
+};
+
+window.reorderExperience = function(fromIndex, toIndex) {
+  if (fromIndex === toIndex) return;
+  const data = getStoredPortfolioData();
+  const experiences = [...(data.experience || [])];
+  if (fromIndex < 0 || fromIndex >= experiences.length || toIndex < 0 || toIndex >= experiences.length) return;
+
+  const [moved] = experiences.splice(fromIndex, 1);
+  experiences.splice(toIndex, 0, moved);
+
+  saveExperienceData(experiences);
+  refreshAdminExperienceTable();
+  if (typeof renderExperience === 'function') {
+    renderExperience();
+  }
+  showToast(`✓ Reordered "${moved.role}" to position #${toIndex + 1}`);
+};
+
+let draggedExpIndex = null;
+function attachExperienceDragListeners(tbody) {
+  const rows = tbody.querySelectorAll('.draggable-row');
+  rows.forEach(row => {
+    row.addEventListener('dragstart', (e) => {
+      draggedExpIndex = parseInt(row.getAttribute('data-exp-index'), 10);
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', draggedExpIndex);
+      row.classList.add('is-dragging');
+    });
+
+    row.addEventListener('dragend', () => {
+      row.classList.remove('is-dragging');
+      rows.forEach(r => r.classList.remove('drag-over-top', 'drag-over-bottom'));
+      draggedExpIndex = null;
+    });
+
+    row.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      const targetIndex = parseInt(row.getAttribute('data-exp-index'), 10);
+      if (draggedExpIndex === null || draggedExpIndex === targetIndex) return;
+
+      const rect = row.getBoundingClientRect();
+      const mid = rect.top + rect.height / 2;
+      rows.forEach(r => r.classList.remove('drag-over-top', 'drag-over-bottom'));
+      if (e.clientY < mid) {
+        row.classList.add('drag-over-top');
+      } else {
+        row.classList.add('drag-over-bottom');
+      }
+    });
+
+    row.addEventListener('dragleave', () => {
+      row.classList.remove('drag-over-top', 'drag-over-bottom');
+    });
+
+    row.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const targetIndex = parseInt(row.getAttribute('data-exp-index'), 10);
+      if (draggedExpIndex === null || draggedExpIndex === targetIndex) return;
+
+      const rect = row.getBoundingClientRect();
+      const mid = rect.top + rect.height / 2;
+      let finalIndex = e.clientY < mid ? targetIndex : targetIndex + 1;
+      if (draggedExpIndex < finalIndex) {
+        finalIndex -= 1;
+      }
+      reorderExperience(draggedExpIndex, finalIndex);
+    });
+  });
 }
 
 function handleSaveExperience(e) {
@@ -337,8 +434,21 @@ function refreshAdminProjectsTable() {
   const data = getStoredPortfolioData();
   const projects = data.projects;
 
-  tableBody.innerHTML = projects.map(p => `
-    <tr>
+  if (projects.length === 0) {
+    tableBody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: var(--text-dim); padding: 1.5rem;">No projects found.</td></tr>`;
+    return;
+  }
+
+  tableBody.innerHTML = projects.map((p, idx) => `
+    <tr class="draggable-row" draggable="true" data-proj-index="${idx}" data-proj-id="${escapeHtml(p.id)}">
+      <td style="text-align: center; white-space: nowrap;">
+        <div style="display: inline-flex; align-items: center; justify-content: center; gap: 4px;">
+          <span class="drag-handle" title="Drag to reorder" style="cursor: grab; color: var(--text-dim); font-size: 1.15rem; user-select: none; line-height: 1; padding-right: 2px;">⠿</span>
+          <span class="order-badge">#${idx + 1}</span>
+          <button type="button" class="btn btn-outline btn-sm reorder-btn" title="Move Up" ${idx === 0 ? 'disabled' : ''} onclick="moveProject(${idx}, -1)">▲</button>
+          <button type="button" class="btn btn-outline btn-sm reorder-btn" title="Move Down" ${idx === projects.length - 1 ? 'disabled' : ''} onclick="moveProject(${idx}, 1)">▼</button>
+        </div>
+      </td>
       <td>
         <strong style="color: #ffffff; display: block;">${escapeHtml(p.title)}</strong>
         <span style="font-size: 0.75rem; color: var(--text-dim); font-family: var(--font-mono);">${escapeHtml(p.id)}</span>
@@ -356,6 +466,95 @@ function refreshAdminProjectsTable() {
       </td>
     </tr>
   `).join('');
+
+  attachProjectsDragListeners(tableBody);
+}
+
+window.moveProject = function(index, direction) {
+  const data = getStoredPortfolioData();
+  const projects = [...data.projects];
+  const targetIndex = index + direction;
+  if (targetIndex < 0 || targetIndex >= projects.length) return;
+
+  const [moved] = projects.splice(index, 1);
+  projects.splice(targetIndex, 0, moved);
+
+  saveProjectsData(projects);
+  refreshAdminProjectsTable();
+  if (typeof renderProjects === 'function') {
+    renderProjects(window.currentProjectFilter || 'all');
+  }
+  showToast(`✓ Moved "${moved.title}" ${direction < 0 ? 'up' : 'down'}`);
+};
+
+window.reorderProject = function(fromIndex, toIndex) {
+  if (fromIndex === toIndex) return;
+  const data = getStoredPortfolioData();
+  const projects = [...data.projects];
+  if (fromIndex < 0 || fromIndex >= projects.length || toIndex < 0 || toIndex >= projects.length) return;
+
+  const [moved] = projects.splice(fromIndex, 1);
+  projects.splice(toIndex, 0, moved);
+
+  saveProjectsData(projects);
+  refreshAdminProjectsTable();
+  if (typeof renderProjects === 'function') {
+    renderProjects(window.currentProjectFilter || 'all');
+  }
+  showToast(`✓ Reordered "${moved.title}" to position #${toIndex + 1}`);
+};
+
+let draggedProjIndex = null;
+function attachProjectsDragListeners(tbody) {
+  const rows = tbody.querySelectorAll('.draggable-row');
+  rows.forEach(row => {
+    row.addEventListener('dragstart', (e) => {
+      draggedProjIndex = parseInt(row.getAttribute('data-proj-index'), 10);
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', draggedProjIndex);
+      row.classList.add('is-dragging');
+    });
+
+    row.addEventListener('dragend', () => {
+      row.classList.remove('is-dragging');
+      rows.forEach(r => r.classList.remove('drag-over-top', 'drag-over-bottom'));
+      draggedProjIndex = null;
+    });
+
+    row.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      const targetIndex = parseInt(row.getAttribute('data-proj-index'), 10);
+      if (draggedProjIndex === null || draggedProjIndex === targetIndex) return;
+
+      const rect = row.getBoundingClientRect();
+      const mid = rect.top + rect.height / 2;
+      rows.forEach(r => r.classList.remove('drag-over-top', 'drag-over-bottom'));
+      if (e.clientY < mid) {
+        row.classList.add('drag-over-top');
+      } else {
+        row.classList.add('drag-over-bottom');
+      }
+    });
+
+    row.addEventListener('dragleave', () => {
+      row.classList.remove('drag-over-top', 'drag-over-bottom');
+    });
+
+    row.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const targetIndex = parseInt(row.getAttribute('data-proj-index'), 10);
+      if (draggedProjIndex === null || draggedProjIndex === targetIndex) return;
+
+      const rect = row.getBoundingClientRect();
+      const mid = rect.top + rect.height / 2;
+      let finalIndex = e.clientY < mid ? targetIndex : targetIndex + 1;
+      if (draggedProjIndex < finalIndex) {
+        finalIndex -= 1;
+      }
+      reorderProject(draggedProjIndex, finalIndex);
+    });
+  });
 }
 
 function handleSaveProject(e) {
@@ -1123,6 +1322,100 @@ window.exportSystemBackup = function() {
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
   showToast("✓ Full JSON Backup downloaded!");
+};
+
+window.exportProjectsDataJs = function() {
+  const currentData = getStoredPortfolioData();
+  const leads = getStoredLeads();
+  const fullContent = `/**
+ * Vishal Nagarajan - Portfolio & CRM Data Store
+ * Default projects, experience, publications, certifications, and baseline state
+ * Auto-synced with updated order: ${new Date().toLocaleDateString()}
+ */
+
+const DEFAULT_PORTFOLIO_DATA = ${JSON.stringify({
+    profile: currentData.profile,
+    publications: currentData.publications,
+    experience: currentData.experience,
+    projects: currentData.projects,
+    certifications: currentData.certifications,
+    education: currentData.education,
+    skills: currentData.skills
+  }, null, 2)};
+
+const DEFAULT_CRM_LEADS = ${JSON.stringify(leads, null, 2)};
+
+const STORAGE_KEYS = {
+  PROJECTS: "vishal_portfolio_projects_v2",
+  EXPERIENCE: "vishal_portfolio_experience_v2",
+  PUBLICATIONS: "vishal_portfolio_publications_v2",
+  CERTIFICATIONS: "vishal_portfolio_certifications_v2",
+  SKILLS: "vishal_portfolio_skills_v2",
+  LEADS: "vishal_portfolio_crm_leads_v4_prod",
+  SETTINGS: "vishal_portfolio_settings_v2"
+};
+
+function getStoredPortfolioData() {
+  const localProjects = localStorage.getItem(STORAGE_KEYS.PROJECTS);
+  const localExp = localStorage.getItem(STORAGE_KEYS.EXPERIENCE);
+  const localPubs = localStorage.getItem(STORAGE_KEYS.PUBLICATIONS);
+  const localCerts = localStorage.getItem(STORAGE_KEYS.CERTIFICATIONS);
+  const localSkills = localStorage.getItem(STORAGE_KEYS.SKILLS);
+
+  return {
+    ...DEFAULT_PORTFOLIO_DATA,
+    projects: localProjects ? JSON.parse(localProjects) : DEFAULT_PORTFOLIO_DATA.projects,
+    experience: localExp ? JSON.parse(localExp) : DEFAULT_PORTFOLIO_DATA.experience,
+    publications: localPubs ? JSON.parse(localPubs) : DEFAULT_PORTFOLIO_DATA.publications,
+    certifications: localCerts ? JSON.parse(localCerts) : DEFAULT_PORTFOLIO_DATA.certifications,
+    skills: localSkills ? JSON.parse(localSkills) : DEFAULT_PORTFOLIO_DATA.skills
+  };
+}
+
+function saveProjectsData(projectsArray) {
+  localStorage.setItem(STORAGE_KEYS.PROJECTS, JSON.stringify(projectsArray));
+}
+
+function saveExperienceData(expArray) {
+  localStorage.setItem(STORAGE_KEYS.EXPERIENCE, JSON.stringify(expArray));
+}
+
+function savePublicationsData(pubsArray) {
+  localStorage.setItem(STORAGE_KEYS.PUBLICATIONS, JSON.stringify(pubsArray));
+}
+
+function saveCertificationsData(certsArray) {
+  localStorage.setItem(STORAGE_KEYS.CERTIFICATIONS, JSON.stringify(certsArray));
+}
+
+function saveSkillsData(skillsObj) {
+  localStorage.setItem(STORAGE_KEYS.SKILLS, JSON.stringify(skillsObj));
+}
+
+function getStoredLeads() {
+  const localLeads = localStorage.getItem(STORAGE_KEYS.LEADS);
+  if (!localLeads) {
+    localStorage.setItem(STORAGE_KEYS.LEADS, JSON.stringify(DEFAULT_CRM_LEADS));
+    return DEFAULT_CRM_LEADS;
+  }
+  return JSON.parse(localLeads);
+}
+
+function saveLeadsData(leadsArray) {
+  localStorage.setItem(STORAGE_KEYS.LEADS, JSON.stringify(leadsArray));
+}
+`;
+
+  const blob = new Blob([fullContent], { type: 'application/javascript;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'projects-data.js';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast("✓ Exported updated projects-data.js!");
 };
 
 window.importSystemBackup = function(event) {
